@@ -223,7 +223,8 @@ body::before {
     font-family: var(--font-header);
     font-size: 1rem;
     letter-spacing: 3px;
-    margin-bottom: 60px;
+    margin-bottom: 40px;
+    /* Reduced margin */
     opacity: 0.6;
 }
 
@@ -321,17 +322,13 @@ body::before {
 
 .video-wrapper {
     position: relative;
-    padding-bottom: 39.375%;
-    /* (16:9) * 0.7 aspect ratio logic, but since it's width 70% of container, we adjust the padding-bottom to maintain 16:9 relative to its OWN width */
-    /* Correction: To maintain 16:9 of its OWN width when it is 70% of parent:
-       Padding-bottom: 56.25% (of its own width)
-    */
-    padding-bottom: 39.375%;
-    /* This is 56.25% * 0.7, correctly scaling the height relative to the parent container */
+    padding-bottom: 56.25%;
+    /* Fixed 16:9 Aspect Ratio */
     height: 0;
     overflow: hidden;
-    width: 70%;
-    margin: 40px auto;
+    width: 90%;
+    max-width: 1200px;
+    margin: 30px auto;
     border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 0 50px rgba(0, 0, 0, 0.8), 0 0 20px rgba(139, 0, 0, 0.1);
     background: #000;
