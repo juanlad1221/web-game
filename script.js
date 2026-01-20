@@ -1,8 +1,28 @@
+// Check if the page is running via the file:// protocol
+document.addEventListener('DOMContentLoaded', () => {
+    if (window.location.protocol === 'file:') {
+        console.warn('VAPOL Dev Note: YouTube embeds often require a local server (http://) to play correctly due to browser security policies. If the video shows "Error 153", please try opening this folder with a local server like VS Code Live Server.');
+
+        // Optional: Add a subtle UI note if the trailer container exists
+        const trailerContainer = document.querySelector('.video-wrapper');
+        if (trailerContainer) {
+            const note = document.createElement('p');
+            note.style.fontSize = '0.8rem';
+            note.style.opacity = '0.5';
+            note.style.marginTop = '10px';
+            note.style.fontStyle = 'italic';
+            note.innerText = '(Nota: Si el video no carga, intenta usar un servidor local como Live Server)';
+            trailerContainer.after(note);
+        }
+    }
+});
+
+// Original script content...
 document.addEventListener('DOMContentLoaded', () => {
     // Parallax effect for hero background
     const hero = document.querySelector('.hero');
     const heroBg = document.querySelector('.hero-bg');
-    
+
     window.addEventListener('scroll', () => {
         const scroll = window.pageYOffset;
         if (heroBg) {
